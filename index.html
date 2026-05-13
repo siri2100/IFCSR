@@ -265,11 +265,12 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
+        <br>
         <h2 class="title has-text-centered">Visual results of IFCSR</h2>
           <div class="item">
             <img src="static/pdfs/01_teaser.png" alt="image/png">
           </div>
-        <br><br>
+        <br>
       </div>
     </div>
   </div>
@@ -279,13 +280,14 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
+        <br>
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
             Diffusion models have recently achieved remarkable success in real-world image super-resolution (ISR), typically balancing a trade-off between fidelity (i.e., similarity to HR images) and realism (i.e., perceptual naturalness). To better account for subjective preferences in image quality, controllable diffusion-based methods have been explored, allowing personalized adjustment of this trade-off via tunable parameters. While existing controllable methods have shown effective control, they typically operate in the latent space and require repeated network inference during adjustment, eventually limiting their practicality. In this paper, we propose IFCSR, a simple yet practical approach for one-step diffusion-based real-world ISR that enables inference-free control between fidelity and realism. The key idea is to design a controllable model that adjusts the fidelity-realism trade-off in the image space, rather than in the latent space. Such an image-space control allows users to seamlessly adjust the trade-off without extra inference after an initial inference of fidelity- and realism-specific images. We further introduce a two-stage training scheme and specialized losses that encourage the controllable space to span a broad spectrum of fidelity and realism. Our method achieves quality competitive with state-of-the-art models while providing a practical advantage through inference-free control.
           </p>
         </div>
-        <br><br>
+        <br>
       </div>
     </div>
   </div>
@@ -304,7 +306,7 @@
             Overview of IFCSR. We sequentially train fidelity- and realism-specific branches using specialized losses. During inference, the two outputs are linearly blended with a controllable parameter γ, enabling inference-free fidelity-realism adjustment.
           </p>
         </div>
-        <br><br>
+        <br>
       </div>
     </div>
   </div>

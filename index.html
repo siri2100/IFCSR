@@ -298,7 +298,7 @@
         <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
           <p>
-            To Be Filled. To Be Filled. To Be Filled. To Be Filled. To Be Filled. To Be Filled. 
+            Overview of the training and inference processes of IFCSR. In Stage 1 (top row), we train the fidelity-specific network with a trainable LoRA<sub>&theta</sub> using our specialized loss L<sub>1st</sub>, which focuses on producing a high-fidelity image ˆxfid H. In Stage 2 (middle row), we optimize the realism-specific network with another trainable LoRAϕ. Both ˆxfid H and ˆxreal H are inferred and linearly combined with a sampled γ. Then, the combined output ˆxH is supervised against the HQ target xH via the realism-specific loss L2nd while keeping θ frozen. In the inference stage (bottom row), after producing ˆxfid H and ˆxreal H , users can control fidelity-realism trade-off by tuning γ with no inference.
           </p>
         </div>
       </div>

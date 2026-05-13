@@ -264,7 +264,7 @@
 <section class="hero is-small">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-full">
         <h2 class="title has-text-centered">Visual results of IFCSR</h2>
           <div class="item">
             <img src="static/pdfs/01_teaser.png" alt="image/png">
@@ -282,9 +282,6 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <div class="item">
-            <img src="static/pdfs/02_architecture.png" alt="image/png">
-          </div>
           <p>
             Diffusion models have recently achieved remarkable success in real-world image super-resolution (ISR), typically balancing a trade-off between fidelity (i.e., similarity to HR images) and realism (i.e., perceptual naturalness). To better account for subjective preferences in image quality, controllable diffusion-based methods have been explored, allowing personalized adjustment of this trade-off via tunable parameters. While existing controllable methods have shown effective control, they typically operate in the latent space and require repeated network inference during adjustment, eventually limiting their practicality. In this paper, we propose IFCSR, a simple yet practical approach for one-step diffusion-based real-world ISR that enables inference-free control between fidelity and realism. The key idea is to design a controllable model that adjusts the fidelity-realism trade-off in the image space, rather than in the latent space. Such an image-space control allows users to seamlessly adjust the trade-off without extra inference after an initial inference of fidelity- and realism-specific images. We further introduce a two-stage training scheme and specialized losses that encourage the controllable space to span a broad spectrum of fidelity and realism. Our method achieves quality competitive with state-of-the-art models while providing a practical advantage through inference-free control.
           </p>
@@ -298,11 +295,14 @@
 <section class="hero is-smallt">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-full">
         <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
+          <div class="item">
+            <img src="static/pdfs/02_architecture.png" alt="image/png">
+          </div>
           <p>
-            Overview of the training and inference processes of IFCSR. In Stage 1 (top row), we train the fidelity-specific network with a trainable LoRA<sub>&theta;</sub> using our specialized loss L<sub>1st</sub>, which focuses on producing a high-fidelity image ˆx<sup>fid</sup><sub>H</sub>. In Stage 2 (middle row), we optimize the realism-specific network with another trainable LoRA<sub>&phi;</sub>. Both ˆx<sup>fid</sup><sub>H</sub> and ˆx<sup>real</sup><sub>H</sub> are inferred and linearly combined with a sampled γ. Then, the combined output ˆx<sub>H</sub> is supervised against the HQ target x<sub>H</sub> via the realism-specific loss L<sub>2nd</sub> while keeping θ frozen. In the inference stage (bottom row), after producing ˆx<sup>fid</sup><sub>H</sub> and ˆx<sup>real</sup><sub>H</sub> , users can control fidelity-realism trade-off by tuning γ with no inference.
+            Overview of the training and inference processes of IFCSR. In Stage 1 (top row), we train the fidelity-specific network with a trainable LoRA<sub>&theta;</sub> using our specialized loss L<sub>1st</sub>, which focuses on producing a high-fidelity image x̂<sup>fid</sup><sub>H</sub>. In Stage 2 (middle row), we optimize the realism-specific network with another trainable LoRA<sub>&phi;</sub>. Both x̂<sup>fid</sup><sub>H</sub> and x̂<sup>real</sup><sub>H</sub> are inferred and linearly combined with a sampled γ. Then, the combined output x̂<sub>H</sub> is supervised against the HQ target x<sub>H</sub> via the realism-specific loss L<sub>2nd</sub> while keeping θ frozen. In the inference stage (bottom row), after producing x̂<sup>fid</sup><sub>H</sub> and x̂<sup>real</sup><sub>H</sub> , users can control fidelity-realism trade-off by tuning γ with no inference.
           </p>
         </div>
         <br><br>
@@ -314,7 +314,7 @@
 <section class="hero is-small">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-full">
         <h2 class="title is-3">IFCSR Demo</h2>
         <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
         <source src="static/pdfs/IFCSR_demo.mp4" type="video/mp4">

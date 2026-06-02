@@ -158,5 +158,8 @@ body {
 
 .subsection-title {
     margin-top: 1rem !important;
-    margin-bottom: 0.25rem !important;
+    margin-bottom: 0.1rem !important;
+}
+.subsection-title + .content {
+    margin-top: 0 !important;
 }

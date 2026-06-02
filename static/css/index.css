@@ -156,9 +156,7 @@ body {
   border-radius: 5px;
 }
 
-.title.is-5 {
+.subsection-title {
+    margin-top: 1rem !important;
     margin-bottom: 0.25rem !important;
-}
-.content.has-text-justified {
-    margin-top: 0 !important;
 }

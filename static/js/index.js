@@ -141,6 +141,16 @@ $(document).ready(function() {
 
 })
 
+$(document).ready(function() {
+  bulmaCarousel.attach('#results-carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    loop: true,
+    autoplay: false,
+    navigation: true,
+    pagination: true
+  });
+});
 window.onload = function() {
   bulmaCarousel.attach('#results-carousel', {
     slidesToScroll: 1,

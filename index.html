@@ -183,15 +183,18 @@
           Motivated by the observation that shallow features capture low-level structures while deeper features encode high-level semantics,
           we apply depth-dependent weighting to LPIPS feature distances.
           </p>
-          <p>
-          $L_{s}(\hat{x}_{H},x_{H};w)=\frac{1}{\sum_{j=0}^{L} w_j}\sum_{l=0}^{L}w_l$
-          </p>
+          <div style="text-align:center;">
+          $L_{s}(\hat{x}_{H},x_{H};w)=\frac{1}{\sum_{j=0}^{L} w_j}\sum_{l=0}^{L}w_lD(\hat{x}_H,x_{H},l)$
+          </div>
           <p>
           For fidelity-specific training, monotonically decreasing weights emphasize shallow layers, encouraging accurate reconstruction of edges,
           textures, and colors.
           For realism-specific training, monotonically increasing weights emphasize deeper layers, promoting perceptually realistic details and semantic consistency.
           This simple weighting strategy enables effective branch specialization without introducing additional networks or losses.
           </p>
+          <div style="text-align:center;">
+          $\mathcal{L}_{s}($
+          </div>
         </div>
         
         <br>

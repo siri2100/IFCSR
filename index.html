@@ -161,7 +161,10 @@
             Given the fidelity- and realism-specific networks, $f_{\theta}$ and $f_{\phi}$, we define our controllable model as a linear combination of their outputs, 
             i.e., $\hat{x}^{fid}_{H}$ and $\hat{x}^{real}_{H}$, using a parameter $\gamma$.
           </p>
-          $\hat{x}_{H} = (1-\gamma)\hat{x}^{fid}_{H} + \gamma\hat{x}^{real}_{H}$
+          <p>
+          $\hat{x}_{H} = (1-\gamma)\hat{x}^{fid}_{H} + \gamma\hat{x}^{real}_{H}$ 
+          </p>
+
         </div>
 
         <h2 class="title is-5">Two-Stage Training Scheme</h2>
@@ -177,11 +180,13 @@
         <h2 class="title is-5">Fidelity- and Realism-Specific Losses</h2>
         <div class="content has-text-justified">
           <p>
-          To explicitly specialize fidelity and realism behaviors, we introduce branch-specific perceptual objectives based on LPIPS.
+          We extends the LPIPS loss to explicitly specialize fidelity and realism behaviors.
           Motivated by the observation that shallow features capture low-level structures while deeper features encode high-level semantics,
           we apply depth-dependent weighting to LPIPS feature distances.
           </p>
-
+          <p>
+            $L_{s}(\hat{x}_{H},x_{H};w)=\frac{1}{\sum_{j=0}^{L} w_j}\sum_{l=0}^{L}w_l \mathcal{D}(\hat{x}_H, x_H, l)\$
+          </p>
           <p>
           For fidelity-specific training, monotonically decreasing weights emphasize shallow layers, encouraging accurate reconstruction of edges,
           textures, and colors.

@@ -160,34 +160,29 @@
           <div style="text-align:center;">
           $\hat{x}_{H} = (1-\gamma)f_{\theta}(x_{L}) + \gammaf_{\phi}(x_{L}) = (1-\gamma)\hat{x}^{\text{fid}}_{H} + \gamma\hat{x}^{\text{real}}_{H}$ 
           </div>
+          <p>
+            It is worth noting that linear combination in the image space enables inference-free fidelity-realism control via the parameter 𝛾, 
+            once $\hat{x}^{\text{fid}}_{H}$ and $\hat{x}^{\text{real}}_{H}$ are obtained.
+          </p>
         </div><br>
         
         <h2 class="title is-5 subsection-title">Two-Stage Training Scheme</h2>
         <div class="content has-text-justified">
           <p>
-            We adopts a sequential two-stage training strategy to disentangle fidelity and realism objectives.
-            First, the fidelity branch is optimized using reconstruction-oriented losses to maximize restoration accuracy.
-            Then, the realism branch is initialized from the fidelity branch and further optimized using perceptual objectives,
-            encouraging realistic texture generation while preserving semantic consistency.
+            We propose a two-stage training scheme, which trains the fidelity-specific network and then optimizes 
+            the realism-specific network while freezing the former.
           </p>
         </div><br>
 
         <h2 class="title is-5 subsection-title">Fidelity- and Realism-Specific Losses</h2>
         <div class="content has-text-justified">
           <p>
-          We extends the LPIPS loss to explicitly specialize fidelity and realism behaviors.
-          Motivated by the observation that shallow features capture low-level structures while deeper features encode high-level semantics,
-          we apply depth-dependent weighting to LPIPS feature distances.
+          We design depth-dependent feature-space losses that emphasize shallow features for 
+            fidelity-specific training and deep features for realism-specific training
           </p>
           <div style="text-align:center;">
           $\mathcal{L}_{s}(\hat{x}_{H},x_{H};w)=\frac{1}{\sum_{j=0}^{L} w_j}\sum_{l=0}^{L}w_l\mathcal{D}(\hat{x}_{H},x_{H},l)$
           </div>
-          <p>
-          For fidelity-specific training, monotonically decreasing weights emphasize shallow layers, encouraging accurate reconstruction of edges,
-          textures, and colors.
-          For realism-specific training, monotonically increasing weights emphasize deeper layers, promoting perceptually realistic details and semantic consistency.
-          This simple weighting strategy enables effective branch specialization without introducing additional networks or losses.
-          </p>
           <div style="text-align:center;">
           $\mathcal{L}_{\text{1st}} = \mathcal{L}_{s}(\hat{x}^{\text{fid}}_{H},x_H;w^{\text{dec}})$
           </div>

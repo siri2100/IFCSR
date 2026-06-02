@@ -193,7 +193,10 @@
           This simple weighting strategy enables effective branch specialization without introducing additional networks or losses.
           </p>
           <div style="text-align:center;">
-          $\mathcal{L}_{s}($
+          $\mathcal{L}_{1st} = \mathcal{L}_{s}(\hat{x}^{fid}_{H},x_H;w^{dec})$
+          </div>
+          <div style="text-align:center;">
+          $\mathcal{L}_{2nd} = \mathcal{L}_{s}(\hat{x}_{H},x_H;w^{inc})$
           </div>
         </div>
         

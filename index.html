@@ -145,9 +145,10 @@
         <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
           <p>
-            We sequentially train fidelity- and realism-specific branches using specialized losses. 
-            During inference, the two outputs are linearly blended with a controllable parameter γ, 
-            enabling <strong>inference-free</strong> fidelity-realism adjustment.
+            IFCSR enables controllable fidelity-realism trade-offs in one-step diffusion-based real-world image super-resolution without additional inference cost.
+            We train two specialized branches that independently focus on fidelity and realism objectives.
+            During inference, their outputs are linearly blended using a controllable parameter γ, allowing continuous adjustment 
+            from fidelity to perceptually realistic enhancement.
           </p>
           <div class="item">
             <img src="static/pdfs/02_architecture.png" alt="image/png">
@@ -160,14 +161,35 @@
             Given the fidelity- and realism-specific networks, $f_{\theta}$ and $f_{\phi}$, we define our controllable model as a linear combination of their outputs, 
             i.e., $\hat{x}^{fid}_{H}$ and $\hat{x}^{real}_{H}$, using a parameter $\gamma$.
           </p>
+          $\hat{x}_{H} = (1-\gamma)\hat{x}^{fid}_{H} + \gamma\hat{x}^{real}_{H}$
         </div>
 
         <h2 class="title is-5">Two-Stage Training Scheme</h2>
         <div class="content has-text-justified">
           <p>
-            tbd
+            We adopts a sequential two-stage training strategy to disentangle fidelity and realism objectives.
+            First, the fidelity branch is optimized using reconstruction-oriented losses to maximize restoration accuracy.
+            Then, the realism branch is initialized from the fidelity branch and further optimized using perceptual objectives,
+            encouraging realistic texture generation while preserving semantic consistency.
           </p>
         </div>
+
+        <h2 class="title is-5">Fidelity- and Realism-Specific Losses</h2>
+        <div class="content has-text-justified">
+          <p>
+          To explicitly specialize fidelity and realism behaviors, we introduce branch-specific perceptual objectives based on LPIPS.
+          Motivated by the observation that shallow features capture low-level structures while deeper features encode high-level semantics,
+          we apply depth-dependent weighting to LPIPS feature distances.
+          </p>
+
+          <p>
+          For fidelity-specific training, monotonically decreasing weights emphasize shallow layers, encouraging accurate reconstruction of edges,
+          textures, and colors.
+          For realism-specific training, monotonically increasing weights emphasize deeper layers, promoting perceptually realistic details and semantic consistency.
+          This simple weighting strategy enables effective branch specialization without introducing additional networks or losses.
+          </p>
+        </div>
+        
         <br>
       </div>
     </div>

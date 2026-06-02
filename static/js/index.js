@@ -149,3 +149,13 @@ window.onload = function() {
     autoplay: false,
   });
 }
+window.addEventListener('load', function() {
+  bulmaCarousel.attach('#results-carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    loop: true,
+    autoplay: false,
+    navigation: true,
+    pagination: true
+  });
+});

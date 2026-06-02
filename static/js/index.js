@@ -140,3 +140,12 @@ $(document).ready(function() {
     setupVideoCarouselAutoplay();
 
 })
+
+window.onload = function() {
+  bulmaCarousel.attach('#results-carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    loop: true,
+    autoplay: false,
+  });
+}

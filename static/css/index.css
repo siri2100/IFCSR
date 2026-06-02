@@ -171,3 +171,13 @@ body {
     margin-top: 0.6rem !important;
     margin-bottom: 0.25rem !important;
 }
+
+.results-carousel .item {
+  text-align: center;
+}
+
+.results-carousel .item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

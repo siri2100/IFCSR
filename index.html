@@ -143,9 +143,8 @@
         <div class="content has-text-justified">
           <p>
             IFCSR enables controllable fidelity-realism trade-offs in one-step diffusion-based real-world image super-resolution without additional inference cost.
-            We train two specialized branches that independently focus on fidelity and realism objectives.
-            During inference, their outputs are linearly blended using a controllable parameter γ, allowing continuous adjustment 
-            from fidelity to perceptually realistic enhancement.
+            We train fidelity- and realism-specific networks using a two-stage training scheme and specialized losses.
+            During inference, their outputs are linearly blended using a controllable parameter γ, enabling adjustment of the fidelity-realism spectrum without extra inference.
           </p>
           <div class="item">
             <img src="static/pdfs/02_architecture.png" alt="image/png">
@@ -159,7 +158,7 @@
             i.e., $\hat{x}^{\text{fid}}_{H}$ and $\hat{x}^{\text{real}}_{H}$, using a parameter $\gamma$.
           </p>
           <div style="text-align:center;">
-          $\hat{x}_{H} = (1-\gamma)\hat{x}^{\text{fid}}_{H} + \gamma\hat{x}^{\text{real}}_{H}$ 
+          $\hat{x}_{H} = (1-\gamma)f_{\theta}(x_{L}) + \gammaf_{\phi}(x_{L}) = (1-\gamma)\hat{x}^{\text{fid}}_{H} + \gamma\hat{x}^{\text{real}}_{H}$ 
           </div>
         </div><br>
         
